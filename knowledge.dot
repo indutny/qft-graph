@@ -1,0 +1,116 @@
+digraph {
+  // Various nodes
+
+  QM [label="Quantum Mechanics"];
+  UncertaintyP [label="Uncertainty Principle"];
+  Particles [label="Non-conserved particle count"];
+
+  CreationAnn [label="Creation annihilation operators"];
+  LG [label="Lorentz Group Representations"];
+  Cluster [label="Cluster Decomposition Principle"];
+  Diagrams [label="Feynman diagrams"];
+  PathI [label="Path Integral"];
+  Causality;
+  EnergyBound [label="Energy must be bounded from below"];
+  SpinStat [label="Spin-Statistics Theorem"];
+  Lagrangian [label="Lagrangian Mechanics"];
+  CFT [label="Classical Field Theory"];
+  Noether [label="Noether Theorem"];
+  CrossSec [label="Cross Sections"];
+  SMatrix [label="S-matrix"];
+  Prop [label="Feynman Propagator"];
+  TimeOrd [label="Time-Ordering"];
+  Wick [label="Wick's Theorem"];
+  Gauge [label="Gauge Invariance"];
+  Ward [label="Ward identity"];
+  Charge [label="Charge"];
+  Dirac [label="Dirac equation"];
+  LSZ [label="LSZ reduction"];
+  QED;
+  SM [label="Standard Model"];
+  Unitarity;
+  Fields [label="Quantum Fields"];
+  Bosons;
+  Fermions;
+  Spin;
+  Scalar [label="Scalar fields"];
+  MinimalCoup [label="Minimal Coupling"];
+  SU2 [label="SU(2)"];
+  SU3 [label="SU(3)"];
+  SymmBreak [label="Symmetry Breaking"];
+  NonAbelian [label="Non-Abelian Gauge Theory"];
+  Anomalies;
+  Anti [label="Anti-particles"];
+
+  // Edges
+
+  QM -> Particles;
+  UncertaintyP -> Particles;
+
+  Particles -> CreationAnn;
+  Cluster -> CreationAnn;
+
+  CFT -> Fields;
+  CreationAnn -> Fields;
+
+  SMatrix -> LSZ;
+  SMatrix -> CrossSec;
+
+  Fields -> LSZ;
+  TimeOrd -> LSZ;
+
+  TimeOrd -> Prop;
+  TimeOrd -> Wick;
+
+  Prop -> Diagrams;
+
+  LSZ -> Diagrams;
+  Lagrangian -> Diagrams;
+  SMatrix -> Diagrams;
+  Wick -> Diagrams;
+  TimeOrd -> Diagrams;
+
+  Lagrangian -> Noether;
+  Noether -> Charge;
+
+  Lagrangian -> PathI;
+  PathI -> Diagrams;
+
+  Causality -> SpinStat;
+  EnergyBound -> SpinStat;
+  Fields -> SpinStat;
+
+  SpinStat -> Bosons;
+  SpinStat -> Fermions;
+
+  LG -> Spin;
+  LG -> Scalar;
+
+  Scalar -> Anti;
+  Fermions -> Anti;
+
+  Fermions -> Dirac;
+  Spin -> Dirac;
+
+  Bosons -> QED;
+  Dirac -> QED;
+
+  Gauge -> Ward;
+  Gauge -> QED;
+  Charge -> QED;
+
+  Gauge -> MinimalCoup;
+  MinimalCoup -> QED;
+
+  Unitarity -> Gauge;
+
+  Gauge -> NonAbelian;
+
+  QED -> SM;
+  SU2 -> SM;
+  SU3 -> SM;
+  NonAbelian -> SM;
+  SymmBreak -> SM;
+
+  NonAbelian -> Anomalies;
+}
