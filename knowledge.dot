@@ -27,6 +27,8 @@ digraph {
   Dirac [label="Dirac equation"];
   LSZ [label="LSZ reduction"];
   QED;
+  QCD;
+  ElectroWeak [label="Electro-Weak Theory"];
   SM [label="Standard Model"];
   Unitarity;
   Fields [label="Quantum Fields"];
@@ -35,12 +37,14 @@ digraph {
   Spin;
   Scalar [label="Scalar fields"];
   MinimalCoup [label="Minimal Coupling"];
+  U1 [label="U(1)"];
   SU2 [label="SU(2)"];
   SU3 [label="SU(3)"];
   SymmBreak [label="Symmetry Breaking"];
   NonAbelian [label="Non-Abelian Gauge Theory"];
   Anomalies;
   Anti [label="Anti-particles"];
+  Higgs [label="Higgs Mechanism"];
 
   // Edges
 
@@ -92,6 +96,7 @@ digraph {
   Fermions -> Dirac;
   Spin -> Dirac;
 
+  U1 -> QED;
   Bosons -> QED;
   Dirac -> QED;
 
@@ -107,10 +112,17 @@ digraph {
   Gauge -> NonAbelian;
 
   QED -> SM;
-  SU2 -> SM;
-  SU3 -> SM;
+  SU2 -> ElectroWeak;
+  U1 -> ElectroWeak;
+  SymmBreak -> ElectroWeak;
+  SU3 -> QCD;
+
+  ElectroWeak -> SM;
+  QCD -> SM;
   NonAbelian -> SM;
-  SymmBreak -> SM;
+  SymmBreak -> Higgs;
+
+  Higgs -> SM;
 
   NonAbelian -> Anomalies;
 }
